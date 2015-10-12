@@ -45,5 +45,4 @@ print(api_dict['ActueleVertrekTijden']['VertrekkendeTrein'][0])
 
 #print(response.text)
 
-
-
+print("Eindelijk gelukt")
