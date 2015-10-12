@@ -8,4 +8,4 @@ response = requests.get('http://webservices.ns.nl/ns-api-avt?station=Ut', auth=a
 
 print(response.text)
 
-print("Ik snap hier nog geen snars van:((")
+print("Eindelijk gelukt")
