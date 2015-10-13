@@ -1,3 +1,4 @@
 __author__ = 'S5 (V1S)'
 
-print("BLA")
+print("BLA lalalalalalala "
+      "Oh LOLA Jajajaja LOLA")
