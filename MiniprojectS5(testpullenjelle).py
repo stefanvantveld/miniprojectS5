@@ -1,3 +1,3 @@
 __author__ = 'S5 (V1S)'
 
-print("Stefan is HOMO")
+print("Jelle is een battieboy 8==>")
