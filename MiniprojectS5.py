@@ -47,3 +47,5 @@ print(api_dict['ActueleVertrekTijden']['VertrekkendeTrein'][0])
 
 print("Eindelijk gelukt")
 
+print("Waarom is dit niet duidelijk??????")
+
