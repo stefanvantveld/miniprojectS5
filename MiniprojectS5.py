@@ -45,9 +45,5 @@ print(api_dict['ActueleVertrekTijden']['VertrekkendeTrein'][0])
 
 #print(response.text)
 
-print("Eindelijk gelukt")
 
-print("Waarom is dit niet duidelijk??????")
-
-print("Beter gaat nu niet alles weg of iets")
 
