@@ -29,10 +29,10 @@ def lees_xml():
         try:
             xml_string = bestand.read()
             return xmltodict.parse(xml_string)
-            bestand.close()
         except:
             print('kan bestand niet lezen/verwerken')
         finally:
+            bestand.close()
             print('klaar')
     except:
         print('kan bestand niet openen')
@@ -45,4 +45,3 @@ print(api_dict['ActueleVertrekTijden']['VertrekkendeTrein'][0])
 
 #print(response.text)
 
-print("Eindelijk gelukt")
