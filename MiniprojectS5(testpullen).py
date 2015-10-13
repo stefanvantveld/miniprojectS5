@@ -43,7 +43,7 @@ schrijf_xml()
 api_dict = lees_xml()
 print(api_dict['ActueleVertrekTijden']['VertrekkendeTrein'][0])
 
-#test pullen met david
+#test pullen met david en pushen
 
 #print(response.text)
 
