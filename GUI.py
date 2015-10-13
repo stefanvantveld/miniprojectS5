@@ -78,7 +78,7 @@ class PageThree(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        tk.Frame.config(self, bg="yellow")
+        tk.Frame.config(self, bg="purple")
         label = tk.Label(self, text="Informatie station", font=TITLE_FONT)
         label.pack(side="top", fill="x", pady=10)
         button = tk.Button(self, text="Terug naar startpagina",
