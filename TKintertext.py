@@ -5,7 +5,7 @@ import xmltodict
 
 Gfont=("arial", 45, "bold")
 Buttonfont=("arial", 16)
-Buttonfont2=("arial", 10)
+Buttonfont2=("arial", 11)
 
 def venster2(event):
     Button1.place(x=1000,y=1000)
