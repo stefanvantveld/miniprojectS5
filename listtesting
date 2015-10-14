@@ -1,0 +1,7 @@
+list = ['hoi', 'hallo', 'gutentag', 'hi']
+list2 = ['doei', 'tot ziens', 'auf wiedersehen', 'bye']
+
+print(list)
+keuze = input('Welke van de getoonde lijst wilt u?')
+dekeuze = list.index(keuze)
+print(list2[dekeuze])

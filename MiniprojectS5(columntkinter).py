@@ -25,6 +25,7 @@ def lees_xml():     #function to read the xml file.
 schrijf_xml()
 api_dict = lees_xml()
 
+#Here I've made all the empty lists.
 EindBestemming = []
 VertrekTijd= []
 RouteTekst = []
@@ -55,28 +56,29 @@ for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs th
         else:
             pass
 
-class SimpleGridApp(object):
+class SimpleGridApp(object):        #This class makes a grid with columns.
     def __init__(self, master, **kwargs):
         self.message = []
-        for i, k in enumerate(VertrekTijd[:10]):
+        for i, k in enumerate(VertrekTijd[:20]):
             message = tk.Message(root, text=k[11:16], width=200, bg="goldenrod1")
             message.grid(row=i, column=1)
-        for i, k in enumerate(EindBestemming[:10]):
+        for i, k in enumerate(EindBestemming[:20]):
             message = tk.Message(root, text=k, width=200, bg='goldenrod1')
-            message.grid(row=i, column=2)
-        for i, k in enumerate(VertrekSpoor[:10]):
+            message.grid(row=i+1, column=2)
+        for i, k in enumerate(VertrekSpoor[:20]):
             message = tk.Message(root, text=k, width=200, bg='goldenrod1')
-            message.grid(row=i, column=3)
-        for i, k in enumerate(TreinSoort):
+            message.grid(row=i+1, column=3)
+        for i, k in enumerate(TreinSoort[:20]):
             message = tk.Message(root, text=k, width=100, bg='goldenrod1')
-            message.grid(row=i, column=4)
-        for i, k in enumerate(Vervoerder):
+            message.grid(row=i+1, column=4)
+        for i, k in enumerate(Vervoerder[:20]):
             message = tk.Message(root, text=k, width=100, bg='goldenrod1')
-            message.grid(row=i, column=5)
+            message.grid(row=i+1, column=5)
 
 
 root = tk.Tk()
 root.geometry("800x600")
+#root.resizable(width=False, height=False)
 root.config(bg="goldenrod1")
 app = SimpleGridApp(root, title='Hello, world')
 root.mainloop()
