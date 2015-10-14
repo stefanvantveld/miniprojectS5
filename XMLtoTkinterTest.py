@@ -1,16 +1,15 @@
-__author__ = 'Stefan'
+import tkinter as tk
 
-list = ['hoi', 'hello', 'hi', 'GutenTag']
+list = ['h','o','i']
 
-from tkinter import *
-
-window = Tk()
-label = Label(window, text = list)
-label.pack()
-
-window.mainloop()
-
+class SimpleGridApp():
+    def __init__(self):
+        self.message =[]
+        for i, k in enumerate(list):
+            message = tk.Message(root, text=k, width=5)
+            message.grid(row=i, column=0)
 
 
-for i in testdict:
-    print(testdict[i])
+root = tk.Tk()
+app = SimpleGridApp(root, title='Hello World')
+root.mainloop()

@@ -32,6 +32,7 @@ RitNummer = []
 TreinSoort = []
 Vervoerder = []
 VertrekSpoor = []
+Vertraging = []
 
 for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs through the xml file
     for x in station:                                                   #runs through every 'VertrekkendeTrein' in the last loop.
@@ -46,32 +47,41 @@ for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs th
         elif x == 'TreinSoort':
             TreinSoort.append(station[x])
         elif x == 'VertrekSpoor':
-            VertrekSpoor.append(station [x])
+            VertrekSpoor.append(station[x])
         elif x == 'Vervoerder':
             Vervoerder.append(station[x])
+        elif x == 'VertrekVertragingTekst':
+            Vertraging.append(station[x])
         else:
             pass
 
 class SimpleGridApp(object):
     def __init__(self, master, **kwargs):
         self.message = []
-        for i, k in enumerate(EindBestemming):
-            message = tk.Message(root, text=k, width=100)
-            message.grid(row=i, column=1)
         for i, k in enumerate(VertrekTijd):
-            message = tk.Message(root, text=k, width=100)
+            message = tk.Message(root, text=k[11:16], width=200, bg="goldenrod1")
+            message.grid(row=i, column=1)
+        for i, k in enumerate(EindBestemming):
+            message = tk.Message(root, text=k, width=200, bg='goldenrod1')
             message.grid(row=i, column=2)
-        for i, k in enumerate(Vervoerder):
-            message = tk.Message(root, text=k, width=100)
+        for i, k in enumerate(VertrekSpoor):
+            message = tk.Message(root, text=k, width=200, bg='goldenrod1')
             message.grid(row=i, column=3)
+        for i, k in enumerate(TreinSoort):
+            message = tk.Message(root, text=k, width=100, bg='goldenrod1')
+            message.grid(row=i, column=4)
+        for i, k in enumerate(Vervoerder):
+            message = tk.Message(root, text=k, width=100, bg='goldenrod1')
+            message.grid(row=i, column=5)
 
 
 root = tk.Tk()
+root.geometry("800x600")
+root.config(bg="goldenrod1")
 app = SimpleGridApp(root, title='Hello, world')
 root.mainloop()
 
 
-window = Tk()
-message = tk.Message(window, text= EindBestemming)
+
+
 message.pack()
-window.mainloop()

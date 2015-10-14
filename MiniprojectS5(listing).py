@@ -2,7 +2,7 @@ __author__ = 'S5 (V1S)'
 
 import requests
 import xmltodict
-from tkinter import *
+import tkinter as tk
 
 
 
@@ -45,7 +45,7 @@ for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs th
         elif x == 'TreinSoort':
             TreinSoort.append(station[x])
         elif x == 'VertrekSpoor':
-            VertrekSpoor.append(station [x])
+            VertrekSpoor.append(station[x])
         elif x == 'Vervoerder':
             Vervoerder.append(station[x])
         else:
@@ -54,8 +54,18 @@ for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs th
 
 
 
-window = Tk()
+root = tk.Tk()
 
-message = Message(window, text= EindBestemming)
-message.pack()
-window.mainloop()
+class grid():
+    def __init__(self):
+        self.message =[]
+        for i, k in enumerate(EindBestemming):
+            message = tk.Message(root, text=k, width=5)
+            message.grid(row=i, column=0)
+            print(EindBestemming)
+
+
+
+#message = Message(window, text= EindBestemming)
+#message.pack()
+root.mainloop()
