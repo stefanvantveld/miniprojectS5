@@ -47,7 +47,7 @@ for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs th
         elif x == 'TreinSoort':
             TreinSoort.append(station[x])
         elif x == 'VertrekSpoor':
-            VertrekSpoor.append(station[x])
+            VertrekSpoor.append(station[x]['#text'])
         elif x == 'Vervoerder':
             Vervoerder.append(station[x])
         elif x == 'VertrekVertragingTekst':
@@ -58,13 +58,13 @@ for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs th
 class SimpleGridApp(object):
     def __init__(self, master, **kwargs):
         self.message = []
-        for i, k in enumerate(VertrekTijd):
+        for i, k in enumerate(VertrekTijd[:10]):
             message = tk.Message(root, text=k[11:16], width=200, bg="goldenrod1")
             message.grid(row=i, column=1)
-        for i, k in enumerate(EindBestemming):
+        for i, k in enumerate(EindBestemming[:10]):
             message = tk.Message(root, text=k, width=200, bg='goldenrod1')
             message.grid(row=i, column=2)
-        for i, k in enumerate(VertrekSpoor):
+        for i, k in enumerate(VertrekSpoor[:10]):
             message = tk.Message(root, text=k, width=200, bg='goldenrod1')
             message.grid(row=i, column=3)
         for i, k in enumerate(TreinSoort):
@@ -80,8 +80,3 @@ root.geometry("800x600")
 root.config(bg="goldenrod1")
 app = SimpleGridApp(root, title='Hello, world')
 root.mainloop()
-
-
-
-
-message.pack()
