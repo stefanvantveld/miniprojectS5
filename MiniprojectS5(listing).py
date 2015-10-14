@@ -36,4 +36,8 @@ for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs th
 for i in values:
     print(i)
 
+window = Tk()
 
+message = Message(window, text= values)
+message.pack()
+window.mainloop()
