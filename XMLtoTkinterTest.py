@@ -9,3 +9,8 @@ label = Label(window, text = list)
 label.pack()
 
 window.mainloop()
+
+
+
+for i in testdict:
+    print(testdict[i])

@@ -12,6 +12,8 @@ station = input("Over welk station wil je informatie")  #'station' variable will
 response = requests.get('http://webservices.ns.nl/ns-api-avt?station=%s' % station , auth=auth_details)
 #get information from the api, with the station code from 'station' and with the authentication details.
 
+stationslijst = requests.get('http://webservices.ns.nl/ns-api-stations-v2', auth=auth_details)
+
 def schrijf_xml():  #function to write the response from the API into an XML-file.
     bestand = open('testxml', 'w')          #opens the xml file to write.
     bestand.write(str(response.text))       #write the response.
@@ -24,38 +26,20 @@ def lees_xml():     #function to read the xml file.
 
 schrijf_xml()
 api_dict = lees_xml()
-EindBestemming = []
-VertrekTijd= []
-RouteTekst = []
-RitNummer = []
-TreinSoort = []
-Vervoerder = []
-VertrekSpoor = []
+keys = []
+values = []
 
 for station in api_dict['ActueleVertrekTijden']['VertrekkendeTrein']:   #runs through the xml file
     for x in station:                                                   #runs through every 'VertrekkendeTrein' in the last loop.
-        if x == 'EindBestemming':                                       #Check for all the possible branches and saves them in their respective list.
-            EindBestemming.append(station[x])
-        elif x == 'VertrekTijd':
-            VertrekTijd.append(station[x])
-        elif x == 'RouteTekst':
-            RouteTekst.append(station[x])
-        elif x == 'RitNummer':
-            RitNummer.append(station[x])
-        elif x == 'TreinSoort':
-            TreinSoort.append(station[x])
-        elif x == 'VertrekSpoor':
-            VertrekSpoor.append(station [x])
-        elif x == 'Vervoerder':
-            Vervoerder.append(station[x])
-        else:
-            pass
+        #print(x, station[x])
+        keys.append(x)
+        values.append(station[x])
 
-
-
+for i in values:
+    print(i)
 
 window = Tk()
 
-message = Message(window, text= EindBestemming)
+message = Message(window, text= values)
 message.pack()
 window.mainloop()
