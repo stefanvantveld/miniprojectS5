@@ -5,14 +5,10 @@ import requests
 import xmltodict
 import tkinter as tk
 
-
-
 auth_details = ('stefan.vantveld@student.hu.nl', 'D1TBMhlZz8dkv5FLZC9RgkVflWjntOvmOXHV6mGDoGvLoeGE-SlOfw') #authentication details for logging into the NS-Api
 
-
-
-
 stationslijst = requests.get('http://webservices.ns.nl/ns-api-stations-v2', auth=auth_details)
+
 def schrijf_stationlijst():
     bestand = codecs.open('stationinfo', 'w', 'utf-8')
     bestand.write(str(stationslijst.text))
